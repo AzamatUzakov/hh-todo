@@ -16,6 +16,8 @@ const EducationForm: React.FC<btn> = ({closeBtn}) => {
 
     const sendSubmit = (data: EducationFormData) => {
         localStorage.setItem("education", JSON.stringify(data));
+        window.dispatchEvent(new Event("storage-updated"));
+
         closeBtn()
     }
 

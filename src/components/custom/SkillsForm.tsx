@@ -2,9 +2,7 @@ import { useForm } from "react-hook-form"
 
 interface SkillsFormData {
     beginner: string;
-    intermediate: string;
-    advanced: string;
-    expert: string;
+    
     program_language: string;
 
 }
@@ -16,6 +14,7 @@ const SkillsForm: React.FC<btn> = ({ closeBtn }) => {
     const { handleSubmit, register } = useForm<SkillsFormData>()
     const sendSubmit = (data: SkillsFormData) => {
         localStorage.setItem("skills", JSON.stringify(data));
+        window.dispatchEvent(new Event("storage-updated"));
         closeBtn()
     }
     return (
@@ -37,13 +36,14 @@ const SkillsForm: React.FC<btn> = ({ closeBtn }) => {
                 <div>
                     <label className="block text-sm font-medium mb-1">Уровень</label>
                     <select
+                        {...register("beginner")}
                         className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm shadow-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
                     >
                         <option value="">Выберите уровень</option>
-                        <option {...register("beginner")} value="beginner">Начинающий</option>
-                        <option {...register("intermediate")} value="intermediate">Средний</option>
-                        <option {...register("advanced")} value="advanced">Продвинутый</option>
-                        <option {...register("expert")} value="expert">Эксперт</option>
+                        <option value="beginner">Начинающий</option>
+                        <option value="intermediate">Средний</option>
+                        <option value="advanced">Продвинутый</option>
+                        <option value="expert">Эксперт</option>
                     </select>
                 </div>
 

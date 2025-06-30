@@ -15,6 +15,8 @@ const AboutMeForm: React.FC<btn> = ({ closeBtn }) => {
 
     const sendSubmit = (data: AboutMeData) => {
         localStorage.setItem("about_me", JSON.stringify(data));
+        window.dispatchEvent(new Event("storage-updated"));
+
         closeBtn()
     }
 

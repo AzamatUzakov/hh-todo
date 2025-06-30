@@ -16,6 +16,8 @@ const ExperienceForm: React.FC<btn> = ({ closeBtn }) => {
 
     const sendSubmit = (data: ExperienceFormData) => {
         localStorage.setItem("experience", JSON.stringify(data));
+        window.dispatchEvent(new Event("storage-updated"));
+
         closeBtn()
     }
     return (

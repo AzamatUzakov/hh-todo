@@ -4,12 +4,11 @@ import {
     SidebarFooter,
     SidebarGroup,
     SidebarHeader,
-    SidebarGroupLabel,
     SidebarMenu,
     SidebarMenuItem,
-    SidebarMenuButton,
 } from "@/components/ui/sidebar"
 import Selected from "./Selected"
+import ReviewForm from "./ReviewForm"
 export function AppSidebar() {
     return (
         <Sidebar>
@@ -18,20 +17,18 @@ export function AppSidebar() {
             </SidebarHeader>
             <SidebarContent className="p-1">
                 <SidebarGroup>
-                    <SidebarGroupLabel>select</SidebarGroupLabel>
                     <SidebarMenu>
                         <SidebarMenuItem>
                                <Selected/>
                         </SidebarMenuItem>
                         <SidebarMenuItem>
-                            <SidebarMenuButton >
-                                Settings
-                            </SidebarMenuButton>
+                        <ReviewForm/>
                         </SidebarMenuItem>
                     </SidebarMenu>
                 </SidebarGroup>
             </SidebarContent>
             <SidebarFooter>
+
                 <p className="text-xs">© 2025</p>
             </SidebarFooter>
         </Sidebar>
