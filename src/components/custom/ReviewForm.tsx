@@ -38,7 +38,7 @@ const ReviewForm: React.FC = () => {
         "experience",
         "education",
         "skills",
-        "aboutMe",
+        "about_me",
     ]);
 
 
@@ -46,7 +46,7 @@ const ReviewForm: React.FC = () => {
         { id: "experience", title: "Опыт работы", icon: "/experience.png", data: experience },
         { id: "education", title: "Образование", icon: "/education.png", data: education },
         { id: "skills", title: "Навыки", icon: "/skills.png", data: skills },
-        { id: "aboutMe", title: aboutMe?.little_about_me || "О себе", icon: "/about_me.png", data: aboutMe },
+        { id: "about_me", title: aboutMe?.little_about_me || "О себе", icon: "/about_me.png", data: aboutMe },
     ], [experience, education, skills, aboutMe]);
 
 
@@ -97,7 +97,7 @@ const ReviewForm: React.FC = () => {
             });
         }
     };
-    const handleDelete = (type: 'experience' | 'education' | 'skills' | 'aboutMe') => {
+    const handleDelete = (type: 'experience' | 'education' | 'skills' | 'about_me') => {
         if (window.confirm(`Вы уверены, что хотите удалить раздел "${type}"?`)) {
             localStorage.removeItem(type);
 
@@ -105,7 +105,7 @@ const ReviewForm: React.FC = () => {
                 case 'experience': setExperience(null); break;
                 case 'education': setEducation(null); break;
                 case 'skills': setSkills(null); break;
-                case 'aboutMe': setAboutMe(null); break;
+                case 'about_me': setAboutMe(null); break;
             }
 
             setItemsOrder(prev => prev.filter(item => item !== type));
@@ -120,7 +120,7 @@ const ReviewForm: React.FC = () => {
                         {sortedResume.map((item) => (
                             <Resume key={item.id}
                                 id={item.id}
-                                type={item.id as 'experience' | 'education' | 'skills' | 'aboutMe'}
+                                type={item.id as 'experience' | 'education' | 'skills' | 'about_me'}
                                 data={item.data}
                                 title={item.title}
                                 icon={item.icon}
