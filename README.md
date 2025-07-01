@@ -36,7 +36,7 @@
 ## 📦 Установка
 
 ```bash
-git clone https://github.com/your-username/todo-list.git
+git clone [https://github.com/your-username/todo-list.git](https://github.com/AzamatUzakov/hh-todo
 cd todo-list
 npm install
 npm run dev
