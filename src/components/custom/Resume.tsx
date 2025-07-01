@@ -45,8 +45,11 @@ const Resume: React.FC<ResumeProps> = ({ id, type, data, title, icon, onDelete }
 
     const handleDeleteClick = (e: React.MouseEvent) => {
         e.stopPropagation();
+        localStorage.removeItem(type);
 
         onDelete(type);
+        window.dispatchEvent(new CustomEvent("storage-updated"));
+
     };
 
     if (!data) return null;
@@ -68,7 +71,10 @@ const Resume: React.FC<ResumeProps> = ({ id, type, data, title, icon, onDelete }
                     <h2 className="text-xl font-semibold mb-2">{title}</h2>
                     <button
                         className=" p-2 cursor-pointer text-red-500 hover:text-red-700 transition-colors"
-                        onClick={handleDeleteClick}>
+                        onClick={(e) => {
+                            handleDeleteClick(e);
+                        }}
+                    >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             className="h-5 w-5"

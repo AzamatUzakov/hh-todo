@@ -9,9 +9,9 @@ import { AppSidebar } from "@/components/custom/app-sidebar"
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <SidebarProvider>
-      <div className="flex">
+      <div className="flex gap-3 w-full">
         <AppSidebar />
-        <div className="flex-1">
+        <div className="w-full">
           <SidebarTrigger />
           <App />
         </div>

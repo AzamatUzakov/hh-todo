@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { closestCorners, DndContext, type DragEndEvent } from "@dnd-kit/core"
-import { SortableContext, useSortable, verticalListSortingStrategy } from "@dnd-kit/sortable"
+import { SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable"
 import Resume from "./Resume";
 
 interface Exp {
